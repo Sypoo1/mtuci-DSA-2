@@ -1,0 +1,124 @@
+{
+    "teachers": [
+        {
+            "name": "Alice Johnson",
+            "gender": "Female",
+            "faculty": "Information Technology",
+            "department": "Corporate Information Systems",
+            "years_experience": 5,
+            "associate_professor": false,
+            "assistant": true,
+            "department_head": false,
+            "head_campus": "Narodnoe Opolchenie",
+            "module": "Information Technology and Programming"
+        },
+        {
+            "name": "Bob Williams",
+            "gender": "Male",
+            "faculty": "Cybernetics and Information Security",
+            "department": "Mathematical Analysis",
+            "years_experience": 12,
+            "associate_professor": true,
+            "assistant": false,
+            "department_head": false,
+            "head_campus": "Aviamatornaya",
+            "module": "Structure and Algorithms for Data Processing"
+        },
+        {
+            "name": "Carol Smith",
+            "gender": "Female",
+            "faculty": "Information Technology",
+            "department": "Mathematical Cybernetics and IT",
+            "years_experience": 8,
+            "associate_professor": true,
+            "assistant": false,
+            "department_head": false,
+            "head_campus": "Both",
+            "module": "Higher Mathematics"
+        },
+        {
+            "name": "David Brown",
+            "gender": "Male",
+            "faculty": "Cybernetics and Information Security",
+            "department": "Probability and Applied Mathematics",
+            "years_experience": 15,
+            "associate_professor": true,
+            "assistant": false,
+            "department_head": true,
+            "head_campus": "Narodnoe Opolchenie",
+            "module": "Probability and Statistics"
+        },
+        {
+            "name": "Eve Davis",
+            "gender": "Female",
+            "faculty": "Information Technology",
+            "department": "Corporate Information Systems",
+            "years_experience": 10,
+            "associate_professor": true,
+            "assistant": false,
+            "department_head": false,
+            "head_campus": "Aviamatornaya",
+            "module": "Databases"
+        },
+        {
+            "name": "Frank Miller",
+            "gender": "Male",
+            "faculty": "Cybernetics and Information Security",
+            "department": "Physical Education",
+            "years_experience": 4,
+            "associate_professor": false,
+            "assistant": true,
+            "department_head": false,
+            "head_campus": "Narodnoe Opolchenie",
+            "module": "Sport"
+        },
+        {
+            "name": "Grace Wilson",
+            "gender": "Female",
+            "faculty": "Information Technology",
+            "department": "Mathematical Cybernetics and IT",
+            "years_experience": 7,
+            "associate_professor": false,
+            "assistant": true,
+            "department_head": false,
+            "head_campus": "Both",
+            "module": "Discrete Mathematics"
+        },
+        {
+            "name": "Henry Martinez",
+            "gender": "Male",
+            "faculty": "Cybernetics and Information Security",
+            "department": "Probability and Applied Mathematics",
+            "years_experience": 20,
+            "associate_professor": true,
+            "assistant": false,
+            "department_head": true,
+            "head_campus": "Aviamatornaya",
+            "module": "Mathematical Methods in Big Data"
+        },
+        {
+            "name": "Ivy Garcia",
+            "gender": "Female",
+            "faculty": "Information Technology",
+            "department": "Corporate Information Systems",
+            "years_experience": 9,
+            "associate_professor": false,
+            "assistant": true,
+            "department_head": false,
+            "head_campus": "Narodnoe Opolchenie",
+            "module": "Practical Project"
+        },
+        {
+            "name": "Jack White",
+            "gender": "Male",
+            "faculty": "Cybernetics and Information Security",
+            "department": "Mathematical Analysis",
+            "years_experience": 18,
+            "associate_professor": true,
+            "assistant": false,
+            "department_head": false,
+            "head_campus": "Both",
+            "module": "Higher Mathematics"
+        }
+    ]
+}
