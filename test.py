@@ -1,62 +1,57 @@
-from datetime import time, datetime
+from datetime import datetime, timedelta
 
-class TimeInterval:
-    def __init__(self, start: time, end: time):
-        self.start = start
-        self.end = end
+def generate_schedule(start_time: str, work_duration: int = 12, trip_duration: int = 105, rest_duration: int = 10):
+    
+    start = datetime.strptime(start_time, "%H:%M")
+    end_time = start + timedelta(hours=work_duration)
 
-    def __repr__(self):
-        return f"{self.start.strftime('%H:%M')} - {self.end.strftime('%H:%M')}"
+    current_time = start
+    trips = []
+    trip_count = 0
 
-    def overlaps(self, other):
-        return self.start < other.end and self.end > other.start
+    while current_time < end_time:
+        
+        trip_start = current_time
+        trip_end = current_time + timedelta(minutes=trip_duration)
 
-class Driver:
-    def __init__(self, name: str):
-        self.name = name
-        self.schedule = {}  # Словарь для хранения расписания на каждый день недели
+        
+        if trip_end > end_time:
+            break
 
-    def add_work_interval(self, day: str, interval: TimeInterval, bus: str):
-        if day not in self.schedule:
-            self.schedule[day] = {'work': [], 'breaks': []}
-        self.schedule[day]['work'].append((interval, bus))
+        trips.append(f"Trip {trip_count + 1}: {trip_start.strftime('%H:%M')} - {trip_end.strftime('%H:%M')}")
+        trip_count += 1
+        current_time = trip_end
 
-    def add_break_interval(self, day: str, interval: TimeInterval):
-        if day not in self.schedule:
-            self.schedule[day] = {'work': [], 'breaks': []}
-        self.schedule[day]['breaks'].append(interval)
+        
+        if trip_count % 2 == 0:
+            rest_start = current_time
+            rest_end = current_time + timedelta(minutes=rest_duration)
 
-    def check_overlaps(self, day: str):
-        work_intervals = [interval for interval, _ in self.schedule[day]['work']]
-        break_intervals = self.schedule[day]['breaks']
-        for work in work_intervals:
-            for break_time in break_intervals:
-                if work.overlaps(break_time):
-                    return False
-        return True
+            if rest_end > end_time:
+                break
 
-    def __repr__(self):
-        result = f"Driver: {self.name}\n"
-        for day, intervals in self.schedule.items():
-            result += f"{day}:\n"
-            result += "  Work intervals:\n"
-            for interval, bus in intervals['work']:
-                result += f"    {interval} (Bus: {bus})\n"
-            result += "  Break intervals:\n"
-            for interval in intervals['breaks']:
-                result += f"    {interval}\n"
-        return result
+            trips.append(f"Rest: {rest_start.strftime('%H:%M')} - {rest_end.strftime('%H:%M')}")
+            current_time = rest_end
 
-# Пример использования
-driver1 = Driver(name="John Doe")
-driver1.add_work_interval('Monday', TimeInterval(start=time(9, 0), end=time(12, 0)), bus="Bus 1")
-driver1.add_work_interval('Monday', TimeInterval(start=time(13, 0), end=time(18, 0)), bus="Bus 2")
-driver1.add_break_interval('Monday', TimeInterval(start=time(12, 0), end=time(13, 0)))
+    return trips
 
-driver2 = Driver(name="Jane Smith")
-driver2.add_work_interval('Tuesday', TimeInterval(start=time(8, 0), end=time(11, 0)), bus="Bus 3")
-driver2.add_work_interval('Tuesday', TimeInterval(start=time(12, 0), end=time(17, 0)), bus="Bus 4")
-driver2.add_break_interval('Tuesday', TimeInterval(start=time(11, 0), end=time(12, 0)))
+print("\nDriver 1\n")
+schedule = generate_schedule("00:00")
+for entry in schedule:
+    print(entry)
 
-print(driver1)
-print(driver2)
+print("\nDriver 2\n")
+schedule = generate_schedule("03:30")
+for entry in schedule:
+    print(entry)
+
+
+print("\nDriver 3\n")
+schedule = generate_schedule("11:05")
+for entry in schedule:
+    print(entry)
+
+print("\nDriver 4\n")
+schedule = generate_schedule("14:35")
+for entry in schedule:
+    print(entry)
