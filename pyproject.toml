@@ -9,5 +9,6 @@ dependencies = [
     "matplotlib>=3.9.2",
     "numpy>=2.1.1",
     "pandas>=2.2.3",
+    "pulp>=2.9.0",
     "pygame>=2.6.1",
 ]
